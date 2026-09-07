@@ -49,7 +49,7 @@ lib/
 
 ### 3. 📋 Issue Convention
 
-## 📌 작업 내용 (Task)
+
 - [ ] Clean Architecture 디렉토리 구조 생성
 - [ ] go_router 라우팅 적용 (4개 화면)
 - [ ] 로그인/시간표 메인/추가/알림 화면 퍼블리싱
