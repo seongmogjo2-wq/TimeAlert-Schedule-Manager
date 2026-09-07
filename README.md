@@ -24,3 +24,48 @@ lib/
     ├── timetable/         # 메인 시간표 화면
     ├── schedule_edit/     # 시간표 추가/수정 화면
     └── notification/      # 알림 설정 화면
+
+## 🤙 개발 컨벤션 (Conventions)
+
+### 1. 💬 Commit Convention
+
+커밋 메시지는 `<Type>: <Subject> (#<Issue_Number>)` 형식을 준수합니다.
+
+| Type | 설명 |
+| :--- | :--- |
+| `feat` | 새로운 기능 추가 |
+| `fix` | 버그 수정 |
+| `style` | UI 퍼블리싱, 스타일 변경, 코드 포맷팅 (비즈니스 로직 변경 없음) |
+| `refactor` | 코드 리팩토링 (기능 변경 없음) |
+| `docs` | README 등 문서 수정 |
+| `chore` | 빌드 업무, 패키지 설정, 환경설정 변경 |
+| `test` | 테스트 코드 추가 및 수정 |
+
+#### **예시**
+* `feat: 로그인 및 시간표 화면 정적 퍼블리싱 (#1)`
+* `feat: go_router 라우팅 환경 구축 (#2)`
+* `docs: Issue, PR, Commit 컨벤션 작성 (#3)`
+
+---
+
+### 2. 🌿 Branch Strategy
+
+* `main`: 최종 제출 및 배포용 브랜치
+* `feat/#이슈번호-기능명`: 기능 개발 브랜치
+  * 예: `feat/#1-auth-ui`, `feat/#2-routing`
+
+---
+
+### 3. 📋 Issue Convention
+
+**제목 형식**: `[Type] 작업 내용 요약`
+* 예: `[Feat] 로그인 화면 UI 퍼블리싱`
+
+**본문 템플릿**:
+```text
+## 📌 작업 내용 (Task)
+- [ ] 구체적인 작업 항목 1
+- [ ] 구체적인 작업 항목 2
+
+## 📝 상세 설명
+- 작업 내용 및 요구사항 정리
