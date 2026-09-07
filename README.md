@@ -38,6 +38,8 @@ lib/
 | `docs` | README 등 문서 작성 및 수정 |
 | `chore` | 패키지 설정 및 기타 잡무 |
 
+---
+
 ### 2. 🌿 Branch Strategy
 
 * `main`: 최종 제출 및 배포용 브랜치
