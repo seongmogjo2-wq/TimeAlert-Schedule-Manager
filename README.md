@@ -11,15 +11,6 @@
 
 ---
 
-## 🛠 기술 스택 (Tech Stack)
-
-* **Framework**: Flutter
-* **Language**: Dart
-* **Navigation**: go_router
-* **Architecture**: Clean Architecture (Presentation, Domain, Data)
-
----
-
 ## 📂 프로젝트 구조 (Clean Architecture)
 
 ```text
