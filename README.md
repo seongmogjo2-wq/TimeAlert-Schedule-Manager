@@ -25,6 +25,7 @@ lib/
     ├── schedule_edit/     # 시간표 추가/수정 화면
     └── notification/      # 알림 설정 화면
 
+```
 ## 🤙 개발 컨벤션 (Conventions)
 
 ### 1. 💬 Commit Convention
