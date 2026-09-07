@@ -17,9 +17,9 @@
 lib/
 ├── core/                  # 공통 유틸리티, 테마, 라우터 설정 등
 │   └── router/            # go_router 설정
-├── data/                  # 데이터 레이어 (Data Sources, Repositories Implementation)
-├── domain/                # 도메인 레이어 (Entities, Repositories Interface, UseCases)
-└── presentation/          # 프레젠테이션 레이어 (UI, Widgets, ViewModels)
+├── data/                  # 데이터 레이어
+├── domain/                # 도메인 레이어
+└── screens/               # 프레젠테이션 레이어
     ├── auth/              # 로그인/회원가입 화면
     ├── timetable/         # 메인 시간표 화면
     ├── schedule_edit/     # 시간표 추가/수정 화면
@@ -28,8 +28,6 @@ lib/
 ```
 
 ### 1. 💬 Commit Convention
-
-커밋 메시지는 `<Type>: <Subject> (#<Issue_Number>)` 형식을 준수합니다.
 
 | Type | 설명 |
 | :--- | :--- |
@@ -41,13 +39,6 @@ lib/
 | `chore` | 빌드 업무, 패키지 설정, 환경설정 변경 |
 | `test` | 테스트 코드 추가 및 수정 |
 
-#### **예시**
-* `feat: 로그인 및 시간표 화면 정적 퍼블리싱 (#1)`
-* `feat: go_router 라우팅 환경 구축 (#2)`
-* `docs: Issue, PR, Commit 컨벤션 작성 (#3)`
-
----
-
 ### 2. 🌿 Branch Strategy
 
 * `main`: 최종 제출 및 배포용 브랜치
@@ -58,7 +49,7 @@ lib/
 ### 3. 📋 Issue Convention
 
 ## 📌 작업 내용 (Task)
-
-
-## 📝 상세 설명
+- [x] Clean Architecture 디렉토리 구조 생성
+- [x] go_router 라우팅 적용 (4개 화면)
+- [x] 로그인/시간표 메인/추가/알림 화면 퍼블리싱
 
