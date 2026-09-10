@@ -20,7 +20,6 @@ lib/
 ├── data/                  # 데이터 레이어
 ├── domain/                # 도메인 레이어
 └── screens/               # 프레젠테이션 레이어
-    ├── auth/              # 로그인/회원가입 화면
     ├── timetable/         # 메인 시간표 화면
     ├── schedule_edit/     # 시간표 추가/수정 화면
     └── notification/      # 알림 설정 화면
