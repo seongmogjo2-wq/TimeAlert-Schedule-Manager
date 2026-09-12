@@ -15,15 +15,14 @@
 
 ```text
 lib/
-├── core/                  # 공통 유틸리티, 테마, 라우터 설정 등
-│   └── router/            # go_router 설정
-├── data/                  # 데이터 레이어
-├── domain/                # 도메인 레이어
-└── screens/               # 프레젠테이션 레이어
-    ├── schedule_edit/     # 로그인 화면
-    ├── timetable/         # 메인 시간표 화면
-    ├── schedule_edit/     # 시간표 추가/수정 화면
-    └── notification/      # 알림 설정 화면
+├── main.dart
+├── screens/
+│   ├── login_screen.dart
+│   ├── timetable_screen.dart
+│   ├── schedule_edit_screen.dart
+│   └── notification_screen.dart
+└── widgets/
+    └── schedule_card.dart
 
 ```
 
