@@ -42,22 +42,24 @@ lib/
 
 ### 2.  Pull Request Convention
 
-##  개요
-=
+##  관련 이슈
+- Closes #
 
-##  작업 사항
-- [ ] 
-- [ ] 
+##  작업 내용
 
+##  테스트 방법
+
+##  리뷰어에게 남길 말
 ---
 
 ### 3. Issue Convention
 
-##  작업 내용
-- [ ] Clean Architecture 기반 기본 폴더 구조 생성6
+##  개요
+Clean Architecture 폴더 구조를 구축하고, 앱의 주요 화면 간 이동을 위한 `go_router` 기반 라우팅을 설정합니다.
+
+##  작업 상세 내용 (To-Do)
+- [ ] Clean Architecture 기반 기본 폴더 구조 생성
 - [ ] go_router 기반 라우팅 설정 (`/login`, `/timetable`, `/schedule/edit`, `/notification`)
 
-## 상세 설명
-- core, data, domain, presentation 레이어 분리
-- 각 화면 간 기본 이동 로직 구현 및 테스트
-
+##  참고 사항
+- Flutter `go_router` 패키지 사용
