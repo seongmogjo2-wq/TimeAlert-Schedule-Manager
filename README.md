@@ -1,17 +1,17 @@
-# 📅 TimeAlert_Schedule_Manager
+#  TimeAlert_Schedule_Manager
 
 > 시간표 작성 기능 및 설정된 시간에 맞춰 알림을 전달하는 Flutter 미니 애플리케이션입니다.
 
 ---
 
-## 📱 프로젝트 소개
+## 프로젝트 소개
 
 * **주요 기능**: 시간표 등록 및 조회, 일정 알림 설정, 사용자 인증(로그인)
 * **개발 목표**: Clean Architecture 구조 적용, `go_router` 기반의 선언적 라우팅 구현, UI 정적 퍼블리싱
 
 ---
 
-## 📂 프로젝트 구조 (Clean Architecture)
+##  프로젝트 구조 (Clean Architecture)
 
 ```text
 lib/
@@ -20,13 +20,14 @@ lib/
 ├── data/                  # 데이터 레이어
 ├── domain/                # 도메인 레이어
 └── screens/               # 프레젠테이션 레이어
+    ├── schedule_edit/     # 로그인 화면
     ├── timetable/         # 메인 시간표 화면
     ├── schedule_edit/     # 시간표 추가/수정 화면
     └── notification/      # 알림 설정 화면
 
 ```
 
-### 1. 💬 Commit Convention
+### 1.  Commit Convention
 
 | Type | 설명 |
 | :--- | :--- |
@@ -39,17 +40,24 @@ lib/
 
 ---
 
-### 2. 🌿 Branch Strategy
+### 2.  Pull Request Convention
 
-* `main`: 최종 제출 및 배포용 브랜치
-* `feat/#이슈번호-기능명`: 기능 개발 브랜치
+##  개요
+=
+
+##  작업 사항
+- [ ] 
+- [ ] 
 
 ---
 
-### 3. 📋 Issue Convention
+### 3. Issue Convention
 
+##  작업 내용
+- [ ] Clean Architecture 기반 기본 폴더 구조 생성6
+- [ ] go_router 기반 라우팅 설정 (`/login`, `/timetable`, `/schedule/edit`, `/notification`)
 
-- [ ] Clean Architecture 디렉토리 구조 생성
-- [ ] go_router 라우팅 적용 (4개 화면)
-- [ ] 로그인/시간표 메인/추가/알림 화면 퍼블리싱
+## 상세 설명
+- core, data, domain, presentation 레이어 분리
+- 각 화면 간 기본 이동 로직 구현 및 테스트
 
