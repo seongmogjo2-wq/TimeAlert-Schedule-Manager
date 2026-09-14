@@ -45,22 +45,6 @@ lib/
 | `docs` | README 등 문서 작성 및 수정 |
 | `chore` | 패키지 설정 및 기타 잡무 |
 ---
-
-[Issue #1] 라우팅 및 기본 위젯 분리 (Closed)
-go_router 기반의 선언적 내비게이션 환경 구축 (/login, /alam, /set, /add)
-
-screens/ 및 widgets/ 구조로 파일 및 역할 분리
-
-[Issue #3] 중앙집중형 디자인 시스템 및 전역 테마 구축 (Closed)
-AppColors 상수를 통한 앱 전역 색상 일원화
-
-AppTheme.lightTheme을 통한 Material 3 전역 테마 제어
-
-AppButton, Input 등 공통 UI 컴포넌트 재사용화
-
-전체 화면 하드코딩 색상 및 불필요한 const 키워드 정리
-
----
 ## 참고 디자인
 https://www.figma.com/design/puxbQVTDCVWTc0wZIsD9zC/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=0-1&t=3QbJ5dgT0IKXpINJ-1
  
