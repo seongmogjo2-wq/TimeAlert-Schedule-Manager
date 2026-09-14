@@ -43,17 +43,25 @@ lib/
 
 ## 관련 이슈
 Closes #1
+Closes #3
 
-##  작업 내용
-- [go_router 기반 라우팅 및 내비게이션 구축]
-- [클린 아키텍처 기반 위젯 분리]
+## 작업 내용
+issue 1
+- go_router 기반 라우팅 및 내비게이션 구축
+- 클린 아키텍처 기반 위젯 분리
+
+issue 3
+- 중앙집중형 디자인 시스템 구축 (`AppColors`, `AppTheme`)
+- 재사용 가능한 공통 위젯 구현 (`AppButton`, `Input`)
+- 전체 스크린 하드코딩 색상 및 redundent `const` 키워드 제거 리팩토링
 
 ## 상세 내용
- go_router 기반 내비게이션 구축이 되었으며 Clean Architecture기반 위젯 분리로 widget,screen으로 파일을 구분하였으며
- widget함수를 이용하여 재사용성이 있는 함수를 사용하였다.
+- `go_router` 기반 내비게이션 구축이 완료되었으며, 클린 아키텍처 기반으로 `widget`과 `screen`을 명확히 구분하여 구조화했습니다.
+- 재사용 가능한 공통 컴포넌트(`AppButton`, `Input`, `ScheduleCard`)를 활용하여 코드 중복을 최소화했습니다.
+- `AppColors`로 색상 관리를 일원화하고, `AppTheme.lightTheme`을 `main.dart`에 전역 적용하여 스타일 유지보수성을 극대화했습니다.
 
- ## 디자인 시스템
- https://www.figma.com/design/puxbQVTDCVWTc0wZIsD9zC/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=0-1&t=3QbJ5dgT0IKXpINJ-1
+## 참고 디자인
+https://www.figma.com/design/puxbQVTDCVWTc0wZIsD9zC/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=0-1&t=3QbJ5dgT0IKXpINJ-1
  
  
 
