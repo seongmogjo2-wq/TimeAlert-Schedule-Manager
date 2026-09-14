@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:timealert_schedule_manager/core/constants/app_colors.dart';
+import 'package:timealert_schedule_manager/core/widgets/app_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -10,33 +12,7 @@ class LoginScreen extends StatelessWidget {
     TextEditingController email = TextEditingController();
     TextEditingController pass = TextEditingController();
 
-    Widget input(TextEditingController text, String name, String hint) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-          TextField(
-            controller: text,
-            decoration: InputDecoration(
-              hint: Text(hint, style: TextStyle(color: Color(0xFFAEB3C0))),
-              filled: true,
-              fillColor: Color(0xFFF4F4F6),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Color(0xFFAEB3C0), width: 2),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF5138EE), width: 2),
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-          ),
-        ],
-      );
-    }
-
     return Scaffold(
-      backgroundColor: Color(0xFFEEF2FF),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -45,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             padding: EdgeInsets.all(16),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.surface,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -55,10 +31,10 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       CircleAvatar(
-                        backgroundColor: Color(0xFF5138EE),
+                        backgroundColor: AppColors.primary,
                         child: Icon(
                           Icons.watch_later_outlined,
-                          color: Colors.white,
+                          color: AppColors.surface,
                           size: 25,
                         ),
                       ),
@@ -67,13 +43,14 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                       Text(
                         '시간표에 따라서 알림을 올려줍니다.',
                         style: TextStyle(
                           fontSize: 15,
-                          color: Color(0xFF868996),
+                          color: AppColors.textLightSecondary,
                         ),
                       ),
                     ],
@@ -81,14 +58,15 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Column(
-                  spacing: 5,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 5),
-                    input(name, '사용자 이름', '이름을 입력하시오'),
-                    input(email, '이메일', '이메일을 입력하시오'),
-                    input(pass, '비밀번로', '비밀번호를 입력하시오'),
-                    SizedBox(height: 8),
+                    Input(controller: name, label: '사용자 이름', hint: '이름을 입력하시오'),
+                    SizedBox(height: 5),
+                    Input(controller: email, label: '이메일', hint: '이메일을 입력하시오'),
+                    SizedBox(height: 5),
+                    Input(controller: pass, label: '비밀번호', hint: '비밀번호를 입력하시오'),
+                    SizedBox(height: 13),
                     SizedBox(
                       height: 40,
                       width: double.infinity,
@@ -98,12 +76,12 @@ class LoginScreen extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          backgroundColor: Color(0xFF919098),
+                          backgroundColor: AppColors.greyButton,
                         ),
                         child: Text(
                           '확인',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColors.surface,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:timealert_schedule_manager/core/theme/app_theme.dart';
 import 'package:timealert_schedule_manager/screens/add_schedule_screen.dart';
 import 'package:timealert_schedule_manager/screens/alam_screen.dart';
 import 'package:timealert_schedule_manager/screens/login_screen.dart';
@@ -13,6 +14,7 @@ class AlamApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
     );

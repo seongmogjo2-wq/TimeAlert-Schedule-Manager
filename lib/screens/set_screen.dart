@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:timealert_schedule_manager/core/constants/app_colors.dart';
+import '../core/widgets/app_button.dart';
 
 class SetScreen extends StatelessWidget {
   const SetScreen({super.key});
@@ -7,66 +9,88 @@ class SetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEF2FF),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Color(0xFF0F172A),
-                  side: BorderSide(color: Colors.white),
-                  minimumSize: Size(40, 40),
-                  padding: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                ),
+              AppButton(
+                width: 40,
+                height: 40,
+                padding: EdgeInsets.zero,
                 onPressed: () => context.go('/alam'),
-                child: Icon(Icons.arrow_back, size: 18),
-              ),
-              SizedBox(height: 16),
-              Text(
-                '설정',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
-              ),
-              Text(
-                '알림 설정 및 전체 설정',
-                style: TextStyle(fontSize: 13, color: Color(0xFF64748B)),
-              ),
-              SizedBox(height: 20),
-
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                child: const Center(
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 18,
+                    color: AppColors.textPrimary,
+                  ),
                 ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                '설정',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+              const Text(
+                '알림 설정 및 전체 설정',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+              const SizedBox(height: 20),
+              AppButton(
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         CircleAvatar(
                           radius: 22,
-                          backgroundColor: Color(0xFFEEF2FF),
-                          child: Icon(Icons.person, color: Colors.black),
+                          backgroundColor: AppColors.background,
+                          child: Icon(Icons.person, color: AppColors.darkButton),
                         ),
                         SizedBox(width: 14),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('홍길동', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xFF0F172A))),
-                            Text('honggildong@gamil.com', style: TextStyle(fontSize: 13, color: Color(0xFF64748B))),
+                            Text(
+                              '홍길동',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: AppColors.textPrimary,
+                              ),
+                            ),
+                            Text(
+                              'honggildong@gamil.com',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: AppColors.textSecondary,
+                              ),
+                            ),
                           ],
                         ),
                       ],
                     ),
-                    Divider(height: 30, color: Color(0xFFF1F5F9)),
+                    const Divider(height: 30, color: AppColors.border),
                     SwitchListTile(
                       contentPadding: EdgeInsets.zero,
-                      title: Text('전체 알림 활성화', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                      activeThumbColor: Colors.black,
+                      title: const Text(
+                        '전체 알림 활성화',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.textPrimary,
+                        ),
+                      ),
+                      activeThumbColor: AppColors.darkButton,
                       value: true,
                       onChanged: (val) {},
                     ),
