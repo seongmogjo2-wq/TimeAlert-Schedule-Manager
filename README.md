@@ -41,13 +41,19 @@ lib/
 
 ### 2.  Pull Request Convention
 
-##  관련 이슈
-- Closes #1
+## 관련 이슈
+Closes #1
 
 ##  작업 내용
+- [go_router 기반 라우팅 및 내비게이션 구축]
+- [클린 아키텍처 기반 위젯 분리]
 
-##  테스트 방법
+## 상세 내용
+ go_router 기반 내비게이션 구축이 되었으며 Clean Architecture기반 위젯 분리로 widget,screen으로 파일을 구분하였으며
+ widget함수를 이용하여 재사용성이 있는 함수를 사용하였다.
 
-##  리뷰어에게 남길 말
----
+ ## 디자인 적용 방식
+ https://www.figma.com/design/puxbQVTDCVWTc0wZIsD9zC/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=0-1&t=3QbJ5dgT0IKXpINJ-1
+ 버튼 및 색상과 로그인 화면 배경색,텍스트 위치등을 참고하여 적용하였다.
+ 
 
