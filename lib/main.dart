@@ -5,10 +5,10 @@ import 'package:timealert_schedule_manager/screens/alam_screen.dart';
 import 'package:timealert_schedule_manager/screens/login_screen.dart';
 import 'package:timealert_schedule_manager/screens/set_screen.dart';
 
-void main() => runApp(Alam_App());
+void main() => runApp(AlamApp());
 
-class Alam_App extends StatelessWidget{
-  const Alam_App({super.key});
+class AlamApp extends StatelessWidget{
+  const AlamApp({super.key});
 
   @override
   Widget build(BuildContext context) {
