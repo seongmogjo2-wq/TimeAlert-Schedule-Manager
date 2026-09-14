@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/constants/app_colors.dart';
 
 class ScheduleCard extends StatelessWidget {
   final String title;
@@ -18,7 +19,7 @@ class ScheduleCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 4),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -32,13 +33,16 @@ class ScheduleCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimary,
                 ),
               ),
               SizedBox(height: 6),
               Text(
                 time,
-                style: TextStyle(fontSize: 14, color: Color(0xFF64748B)),
+                style: TextStyle(
+                  fontSize: 14,
+                  color: AppColors.textSecondary,
+                ),
               ),
             ],
           ),
@@ -46,7 +50,7 @@ class ScheduleCard extends StatelessWidget {
             isAlarmOn
                 ? Icons.notifications_active
                 : Icons.notifications_off_outlined,
-            color: isAlarmOn ? Colors.black : Color(0xFF94A3B8),
+            color: isAlarmOn ? AppColors.darkButton : AppColors.iconDisable,
           ),
         ],
       ),

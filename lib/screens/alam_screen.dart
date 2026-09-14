@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:timealert_schedule_manager/core/widgets/app_button.dart';
+import '../core/constants/app_colors.dart';
 import '../widgets/schedule_card.dart';
 
 class AlamScreen extends StatelessWidget {
@@ -15,12 +16,10 @@ class AlamScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Color(0xFFEEF2FF),
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 16,
           children: [
             SizedBox(height: 10),
             Row(
@@ -28,118 +27,111 @@ class AlamScreen extends StatelessWidget {
               children: [
                 Text(
                   '알림 화면',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textPrimary,
+                  ),
                 ),
-                Material(
-                  child: InkWell(
-                    onTap: () => context.go('/login'),
-                    child: Container(
-                      width: 100,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Center(
-                        child: Row(
-                          spacing: 10,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '로그아웃',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Icon(Icons.logout, size: 15, color: Colors.black),
-                          ],
+                AppButton(
+                  width: 100,
+                  height: 40,
+                  padding: EdgeInsets.zero,
+                  onPressed: () => context.go('/login'),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '로그아웃',
+                          style: TextStyle(
+                            color: AppColors.textPrimary,
+                            fontSize: 15,
+                          ),
                         ),
-                      ),
+                        SizedBox(width: 6),
+                        Icon(Icons.logout, size: 15, color: AppColors.textPrimary),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 16),
             Text(
               "스케줄을 관리하고 알림을 추가할 수 있다.",
               style: TextStyle(
-                color: Color(0xFFA0A3B2),
+                color: AppColors.textHint,
                 fontWeight: FontWeight.bold,
                 fontSize: 10,
               ),
             ),
+            SizedBox(height: 4),
             Text(
               "환영합니다 사용자홍길동.",
               style: TextStyle(
-                color: Color(0xFFA0A3B2),
+                color: AppColors.textHint,
                 fontWeight: FontWeight.bold,
                 fontSize: 10,
               ),
             ),
+            SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Material(
-                  child: InkWell(
-                    onTap: () => context.go('/set'),
-                    child: Container(
-                      width: 100,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Center(
-                        child: Row(
-                          spacing: 10,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '설정',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Icon(Icons.settings, size: 15, color: Colors.black),
-                          ],
+                AppButton(
+                  width: 100,
+                  height: 40,
+                  padding: EdgeInsets.zero,
+                  onPressed: () => context.go('/set'),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '설정',
+                          style: TextStyle(
+                            color: AppColors.textPrimary,
+                            fontSize: 15,
+                          ),
                         ),
-                      ),
+                        SizedBox(width: 6),
+                        Icon(Icons.settings, size: 15, color: AppColors.textPrimary),
+                      ],
                     ),
                   ),
                 ),
-                Material(
-                  child: InkWell(
-                    onTap: () => context.go('/add'),
-                    child: Container(
-                      width: 100,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Center(
-                        child: Row(
-                          spacing: 10,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '스케줄',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                AppButton(
+                  width: 100,
+                  height: 40,
+                  padding: EdgeInsets.zero,
+                  onPressed: () => context.go('/add'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.darkButton,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '스케줄',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
                             ),
-                            Icon(Icons.add, size: 15, color: Colors.white),
-                          ],
-                        ),
+                          ),
+                          SizedBox(width: 6),
+                          Icon(Icons.add, size: 15, color: Colors.white),
+                        ],
                       ),
                     ),
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
                 itemCount: schedules.length,
