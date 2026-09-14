@@ -13,7 +13,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const AlamApp());
 
-    expect(find.text('일정 관리'), findsOneWidget);
+    expect(find.text('시간표 알림 앱'), findsOneWidget);
 
   });
 }
