@@ -7,7 +7,7 @@
 ## 프로젝트 소개
 
 * **주요 기능**: 시간표 등록 및 조회, 일정 알림 설정, 사용자 프로필 및 알림 관리
-* **개발 목표**: Clean Architecture 기반 폴더 구조 적용, `go_router` 기반 선언적 라우팅 구현, 중앙집중형 디자인 시스템(`AppColors`, `AppTheme`) 구축
+* **개발 목표**: Clean Architecture 기반 폴더 구조 적용, `go_router` 기반 선언적 라우팅 구현, 중앙집중형 디자인 시스템(`AppColors`, `AppTheme`)등 구축
 
 ---
 
