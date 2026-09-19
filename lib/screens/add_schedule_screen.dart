@@ -1,17 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:timealert_schedule_manager/core/constants/app_colors.dart';
 import 'package:timealert_schedule_manager/core/widgets/app_button.dart';
 import 'package:timealert_schedule_manager/core/widgets/app_text_field.dart';
 
-class AddScheduleScreen extends StatelessWidget {
+import '../features/settings/alarm_setting_provider.dart';
+
+class AddScheduleScreen extends ConsumerStatefulWidget {
   const AddScheduleScreen({super.key});
 
   @override
+  ConsumerState<AddScheduleScreen> createState() => _AddScheduleScreenState();
+}
+
+class _AddScheduleScreenState extends ConsumerState<AddScheduleScreen> {
+  late final TextEditingController nameController;
+  late final TextEditingController startController;
+  late final TextEditingController endController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    startController = TextEditingController();
+    endController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    startController.dispose();
+    endController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController name = TextEditingController();
-    TextEditingController start = TextEditingController();
-    TextEditingController end = TextEditingController();
+    final isAlarmEnabled = ref.watch(alarmSettingProvider);
 
     return Scaffold(
       body: Padding(
@@ -28,11 +54,18 @@ class AddScheduleScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.arrow_back, size: 15, color: AppColors.textPrimary),
+                    Icon(
+                      Icons.arrow_back,
+                      size: 15,
+                      color: AppColors.textPrimary,
+                    ),
                     SizedBox(width: 10),
                     Text(
                       '돌아가기',
-                      style: TextStyle(color: AppColors.textPrimary, fontSize: 15),
+                      style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),
@@ -41,7 +74,11 @@ class AddScheduleScreen extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               '일정 추가',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: AppColors.textPrimary),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: AppColors.textPrimary,
+              ),
             ),
             SizedBox(height: 4),
             Text(
@@ -54,7 +91,7 @@ class AddScheduleScreen extends StatelessWidget {
               width: double.infinity,
               child: Center(
                 child: Input(
-                  controller: name,
+                  controller: nameController,
                   label: '일정이름',
                   hint: '일정의 이름을 입력하시오',
                   icon: Icons.schedule,
@@ -70,14 +107,14 @@ class AddScheduleScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Input(
-                      controller: start,
+                      controller: startController,
                       label: '시작일자',
                       hint: '연도-월-일',
                       icon: Icons.calendar_month,
                     ),
                     SizedBox(height: 16),
                     Input(
-                      controller: end,
+                      controller: endController,
                       label: '끝남 일자',
                       hint: '연도-월-일',
                       icon: Icons.calendar_month,
@@ -95,11 +132,17 @@ class AddScheduleScreen extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   title: Text(
                     '알림 활성화',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.textPrimary,
+                    ),
                   ),
                   activeThumbColor: AppColors.darkButton,
-                  value: true,
-                  onChanged: (val) {},
+                  value: isAlarmEnabled,
+                  onChanged: (val) {
+                    ref.read(alarmSettingProvider.notifier).toggle();
+                  },
                 ),
               ),
             ),
