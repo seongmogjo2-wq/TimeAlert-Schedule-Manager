@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:timealert_schedule_manager/core/constants/app_colors.dart';
 import '../core/widgets/app_button.dart';
 import '../features/auth/user_provider.dart';
+import '../features/settings/alarm_setting_provider.dart';
 
 class SetScreen extends ConsumerWidget {
   const SetScreen({super.key});
@@ -11,11 +12,12 @@ class SetScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userProfile = ref.watch(userProfileProvider);
+    final isGlobalAlarmOn = ref.watch(alarmSettingProvider);
 
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -32,7 +34,7 @@ class SetScreen extends ConsumerWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 '설정',
                 style: TextStyle(
@@ -48,9 +50,9 @@ class SetScreen extends ConsumerWidget {
                   color: AppColors.textSecondary,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               AppButton(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     Row(
@@ -60,7 +62,7 @@ class SetScreen extends ConsumerWidget {
                           backgroundColor: AppColors.background,
                           child: Icon(Icons.person, color: AppColors.darkButton),
                         ),
-                        SizedBox(width: 14),
+                        const SizedBox(width: 14),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -95,8 +97,10 @@ class SetScreen extends ConsumerWidget {
                         ),
                       ),
                       activeThumbColor: AppColors.darkButton,
-                      value: true,
-                      onChanged: (val) {},
+                      value: isGlobalAlarmOn,
+                      onChanged: (val) {
+                        ref.read(alarmSettingProvider.notifier).toggle();
+                      },
                     ),
                   ],
                 ),
