@@ -39,11 +39,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: Container(
             height: 520,
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             width: double.infinity,
             decoration: BoxDecoration(
               color: AppColors.surface,
@@ -54,7 +54,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               children: [
                 Center(
                   child: Column(
-                    children: const [
+                    children: [
                       CircleAvatar(
                         backgroundColor: AppColors.primary,
                         child: Icon(
@@ -81,7 +81,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -90,26 +90,26 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       label: '사용자 이름',
                       hint: '이름을 입력하시오',
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: 5),
                     Input(
                       controller: emailController,
                       label: '이메일',
                       hint: 'hong@gmail.com',
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: 5),
                     Input(
                       controller: passController,
                       label: '비밀번호',
                       hint: '1234',
                     ),
                     if (authState.errorMessage != null) ...[
-                      const SizedBox(height: 8),
+                       SizedBox(height: 8),
                       Text(
                         authState.errorMessage!,
-                        style: const TextStyle(color: Colors.red, fontSize: 13),
+                        style:  TextStyle(color: Colors.red, fontSize: 13),
                       ),
                     ],
-                    const SizedBox(height: 13),
+                     SizedBox(height: 13),
                     SizedBox(
                       height: 40,
                       width: double.infinity,
@@ -132,7 +132,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           ),
                           backgroundColor: AppColors.greyButton,
                         ),
-                        child: const Text(
+                        child:  Text(
                           '확인',
                           style: TextStyle(
                             color: AppColors.surface,
