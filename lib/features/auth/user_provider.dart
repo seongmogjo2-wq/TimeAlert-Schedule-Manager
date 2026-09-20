@@ -16,11 +16,11 @@ class AuthState {
 class AuthNotifier extends Notifier<AuthState> {
   @override
   AuthState build() => AuthState(
-    user: const UserProfile(name: '홍길동', email: 'hong@gmail.com', password: ''),
+    user: const UserProfile(name: '홍길동', email: 'hong@gmail.com', password: '1234'),
   );
 
   bool login(String name, String email, String password) {
-    if (email != 'admin@test.com' || password != '1234') {
+    if (email != 'hong@gmail.com' || password != '1234') {
       state = AuthState(
         user: state.user,
         errorMessage: '이메일 또는 비밀번호가 올바르지 않습니다.',

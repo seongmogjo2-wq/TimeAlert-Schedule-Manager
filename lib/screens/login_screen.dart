@@ -94,7 +94,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Input(
                       controller: emailController,
                       label: '이메일',
-                      hint: 'admin@test.com',
+                      hint: 'hong@gmail.com',
                     ),
                     const SizedBox(height: 5),
                     Input(
