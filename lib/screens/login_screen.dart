@@ -1,23 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:timealert_schedule_manager/core/constants/app_colors.dart';
 import 'package:timealert_schedule_manager/core/widgets/app_text_field.dart';
+import '../features/auth/user_provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  late final TextEditingController nameController;
+  late final TextEditingController emailController;
+  late final TextEditingController passController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    emailController = TextEditingController();
+    passController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController name = TextEditingController();
-    TextEditingController email = TextEditingController();
-    TextEditingController pass = TextEditingController();
+    final authState = ref.watch(authProvider);
 
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Center(
           child: Container(
-            height: 500,
+            height: 520,
             padding: EdgeInsets.all(16),
             width: double.infinity,
             decoration: BoxDecoration(
@@ -60,25 +85,54 @@ class LoginScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Input(
+                      controller: nameController,
+                      label: '사용자 이름',
+                      hint: '이름을 입력하시오',
+                    ),
                     SizedBox(height: 5),
-                    Input(controller: name, label: '사용자 이름', hint: '이름을 입력하시오'),
+                    Input(
+                      controller: emailController,
+                      label: '이메일',
+                      hint: 'hong@gmail.com',
+                    ),
                     SizedBox(height: 5),
-                    Input(controller: email, label: '이메일', hint: '이메일을 입력하시오'),
-                    SizedBox(height: 5),
-                    Input(controller: pass, label: '비밀번호', hint: '비밀번호를 입력하시오'),
-                    SizedBox(height: 13),
+                    Input(
+                      controller: passController,
+                      label: '비밀번호',
+                      hint: '1234',
+                    ),
+                    if (authState.errorMessage != null) ...[
+                       SizedBox(height: 8),
+                      Text(
+                        authState.errorMessage!,
+                        style:  TextStyle(color: Colors.red, fontSize: 13),
+                      ),
+                    ],
+                     SizedBox(height: 13),
                     SizedBox(
                       height: 40,
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () => context.go('/alam'),
+                        onPressed: () {
+                          final success = ref
+                              .read(authProvider.notifier)
+                              .login(
+                                nameController.text.trim(),
+                                emailController.text.trim(),
+                                passController.text.trim(),
+                              );
+                          if (success) {
+                            context.go('/alam');
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                           backgroundColor: AppColors.greyButton,
                         ),
-                        child: Text(
+                        child:  Text(
                           '확인',
                           style: TextStyle(
                             color: AppColors.surface,
